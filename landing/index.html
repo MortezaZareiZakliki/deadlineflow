@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeadlineFlow - مدیریت ددلاین و تایم لاین</title>
+    <meta name="description" content="یک سیستم مدیریت پروژه و تسک متن باز با تمرکز بر روی ددلاین ها و تایم لاین ها. ساخته شده با Laravel 13, React 19, Docker.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+        body { font-family: 'Vazirmatn', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+        <div class="max-w-6xl mx-auto px-4 py-20 text-center">
+            <h1 class="text-5xl font-bold mb-4">⏳ DeadlineFlow</h1>
+            <p class="text-xl mb-8 opacity-90">سیستم مدیریت پروژه، تسک و تایم لاین متن باز</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="https://github.com/MortezaZareiZakliki/deadlineflow" class="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition">گیت هاب پروژه</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">چرا DeadlineFlow؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold mb-2">سبک و سریع</h3>
+                <p class="text-gray-600">بدون پیچیدگی های اضافی، فقط چیزهایی که نیاز دارید.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl mb-4">🔒</div>
+                <h3 class="text-xl font-bold mb-2">امنیت چندلایه</h3>
+                <p class="text-gray-600">XSS, CSRF, Rate Limiting, Docker Secrets و...</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="text-xl font-bold mb-2">داشبورد هوشمند</h3>
+                <p class="text-gray-600">آمار، نمودار، و تسک های نزدیک به ددلاین.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">تکنولوژی ها</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>Laravel 13</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>PHP 8.5</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>React 19</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>MySQL 8.4</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>Redis</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>RabbitMQ</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>Docker</strong></div>
+                <div class="p-4 bg-gray-50 rounded-lg"><strong>Nginx</strong></div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Screenshots Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-4">نگاهی به پروژه</h2>
+        <p class="text-center text-gray-600 mb-12">صفحات اصلی DeadlineFlow</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Login -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/login.jpg" alt="صفحه ورود" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">🔐 صفحه ورود</h3>
+                    <p class="text-gray-600">احراز هویت امن با Laravel Sanctum. طراحی ساده و کاربرپسند.</p>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/dashboard.jpg" alt="داشبورد" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">📊 داشبورد</h3>
+                    <p class="text-gray-600">نمایش آمار، نمودار وضعیت تسک ها، و تسک های نزدیک به ددلاین.</p>
+                </div>
+            </div>
+
+            <!-- Tasks -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/tasks.jpg" alt="تسک ها" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">✅ مدیریت تسک ها</h3>
+                    <p class="text-gray-600">گروه بندی بر اساس پروژه، با اولویت، وضعیت و ددلاین.</p>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/projects.jpg" alt="پروژه ها" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">📁 مدیریت پروژه‌ها</h3>
+                    <p class="text-gray-600">ایجاد، ویرایش، و مدیریت نسخه ها با مرتب سازی SemVer.</p>
+                </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/profile.jpg" alt="پروفایل" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">👤 پروفایل و نشست ها</h3>
+                    <p class="text-gray-600">مدیریت اطلاعات شخصی، تغییر رمز عبور، و مشاهده ی دستگاه های متصل.</p>
+                </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="screenshots/notifications.jpg" alt="اعلان ها" class="w-full h-64 object-cover object-top">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">🔔 اعلان ها</h3>
+                    <p class="text-gray-600">دریافت یادآوری ددلاین ها و مدیریت اعلان های خوانده شده.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>ساخته شده با ❤️ توسط <a href="https://github.com/MortezaZareiZakliki" class="underline">مرتضی زارعی زکلیکی</a></p>
+        <p class="text-sm text-gray-400 mt-2">© ۱۴۰۵ (۲۰۲۶) - لایسنس MIT</p>
+    </footer>
+
+</body>
+</html>

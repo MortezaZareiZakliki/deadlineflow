@@ -1,0 +1,39 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "start": "concurrently \"php artisan serve\" \"npm run dev\" --names server,vite --kill-others",
+        "startWithInternet": "concurrently \"php artisan serve --host=0.0.0.0 --port=8080\" \"npm run dev\" --names server,vite --kill-others",
+        "down": "docker-compose down",
+        "up": "docker-compose up -d",
+        "stop": "docker-compose up stop",
+        "restartAndBuild": "docker-compose down && docker-compose up -d --build"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.3.2",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "@vitejs/plugin-react": "^6.1.2",
+        "axios": "^1.18.1",
+        "concurrently": "^10.0.3",
+        "laravel-vite-plugin": "^3.1.0",
+        "react-date-object": "^2.1.9",
+        "react-multi-date-picker": "^4.5.2",
+        "tailwindcss": "^4.3.2",
+        "vite": "^8.1.2",
+        "vite-plugin-cjs-interop": "^4.0.3"
+    },
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "date-fns-jalali": "^4.4.0-0",
+        "framer-motion": "^12.42.2",
+        "lucide-react": "^1.22.0",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "react-router-dom": "^7.18.1",
+        "recharts": "^3.9.1"
+    }
+}
