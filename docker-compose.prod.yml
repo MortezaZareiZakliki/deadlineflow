@@ -1,0 +1,82 @@
+# ==============================================================================
+# DeadlineFlow - Docker Compose (Production Override)
+# ==============================================================================
+# This file overrides the base 'docker-compose.yml' for production environments.
+# It uses Docker Secrets to manage sensitive data (passwords, API keys).
+#
+# Usage (Production):
+#   docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ==========================================
+  # 1. Application (PHP-FPM & Horizon)
+  # ==========================================
+  app:
+    environment:
+      # Pass secrets to the app via file paths (the entrypoint.sh reads them)
+      - APP_KEY_FILE=/run/secrets/app_key
+      - DB_PASSWORD_FILE=/run/secrets/mysql_password
+      - REDIS_PASSWORD_FILE=/run/secrets/redis_password
+      - RABBITMQ_PASSWORD_FILE=/run/secrets/rabbitmq_password
+      - HORIZON_PASSWORD_FILE=/run/secrets/horizon_password
+    secrets:
+      - app_key
+      - mysql_password
+      - redis_password
+      - rabbitmq_password
+      - horizon_password
+
+  # ==========================================
+  # 2. Database (MySQL)
+  # ==========================================
+  db:
+    environment:
+      # MySQL supports reading passwords from files out-of-the-box
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql_root_password
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
+    secrets:
+      - mysql_root_password
+      - mysql_password
+
+  # ==========================================
+  # 3. Cache & Queue (Redis)
+  # ==========================================
+  redis:
+    # Read the password from the secret file and start Redis with it
+    command: sh -c 'redis-server --requirepass "$$(cat /run/secrets/redis_password)"'
+    secrets:
+      - redis_password
+
+  # ==========================================
+  # 4. Message Broker (RabbitMQ)
+  # ==========================================
+  rabbitmq:
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      # Read the password from the secret file
+      - RABBITMQ_DEFAULT_PASS_FILE=/run/secrets/rabbitmq_password
+    secrets:
+      - rabbitmq_password
+      
+# ==============================================================================
+# Secrets Definition
+# ==============================================================================
+# These files should be created manually on the production server (inside ./secrets/)
+# and must NEVER be committed to Git. Add the 'secrets/' folder to .gitignore.
+# ==============================================================================
+secrets:
+  app_key:
+    file: ./secrets/app_key.txt
+  mysql_root_password:
+    file: ./secrets/mysql_root_password.txt
+  mysql_password:
+    file: ./secrets/mysql_password.txt
+  redis_password:
+    file: ./secrets/redis_password.txt
+  rabbitmq_password:
+    file: ./secrets/rabbitmq_password.txt
+  horizon_password:
+    file: ./secrets/horizon_password.txt
