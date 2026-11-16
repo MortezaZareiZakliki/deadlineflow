@@ -12,10 +12,10 @@
 
 یک ابزار سبک، سریع و اپن سورس برای مدیریت ددلاین ها و تایم لاین پروژه ها.
 
-[Live Demo](http://deadlineflow.ir) • 
-[مشاهده مستندات API](http://localhost:8080/api/documentation) • 
-[گزارش باگ](https://github.com/MortezaZareiZakliki/deadlineflow/issues) • 
-[درخواست فیچر](https://github.com/MortezaZareiZakliki/deadlineflow/issues)
+[🌐 دموی زنده](https://deadlineflow.ir)
+[📚 مستندات API](http://YOUR_WSL_IP:8080/api/documentation) 
+[🐛 گزارش باگ](https://github.com/MortezaZareiZakliki/deadlineflow/issues)
+[💡 درخواست فیچر](https://github.com/MortezaZareiZakliki/deadlineflow/issues)
 
 </div>
 
@@ -24,6 +24,8 @@
 ## 📖 درباره پروژه
 
 **DeadlineFlow** یک سیستم مدیریت پروژه ی ساده و در عین حال قدرتمند است که با تمرکز بر روی **ددلاین ها** و **تایم لاین ها** طراحی شده است. برخلاف ابزارهای سنگین مثل جیرا (Jirra) که برای تیم های بزرگ ساخته شده اند، **ددلاین فلو** برای تیم های کوچک، فریلنسرها و استارتاپ ها ساخته شده تا بدون پیچیدگی، پروژه هایشان را مدیریت کنند.
+
+🌐 **دموی زنده:** [https://deadlineflow.ir](https://deadlineflow.ir)
 
 > برای خواندن داستان کامل پروژه، محدودیت ها و نقشه راه، فایل [PROJECT_STORY.md](PROJECT_STORY.md) را مطالعه کنید.
 
@@ -57,7 +59,7 @@
 - [ ] نمودار گانت (Gantt Chart) برای تایم لاین
 - [ ] سیستم ایده‌ها و یادداشت‌ها (Ideas)
 - [ ] پشتیبانی از چند تیم (Multi-tenancy)
-- [ ] و هزاران ...
+- [ ] سایر فیچرهای آینده (مشاهده در [ROADMAP.md](ROADMAP.md))
 
 برای مشاهده ی نقشه راه کامل، فایل [ROADMAP.md](ROADMAP.md) را ببینید.
 
@@ -139,7 +141,7 @@
 
 ### پیش نیازها
 
-- یک سرور VPS (Ubuntu 26.04.1 LTS یا بالاتر)
+- یک سرور VPS (Ubuntu 22.04 LTS یا بالاتر)
 - Docker & Docker Compose
 - دامنه (اختیاری، برای HTTPS)
 
@@ -151,6 +153,7 @@
 
     mkdir -p secrets
 
+    # جایگزین YOUR_APP_KEY با کلید واقعی (با php artisan key:generate تولید کنید)
     echo "base64:YOUR_APP_KEY" > secrets/app_key.txt
     echo "root" > secrets/mysql_root_password.txt
     echo "root" > secrets/mysql_password.txt
